@@ -1,0 +1,89 @@
+<div class="game-container">
+  <div class="main-content">
+    <!-- Left side - Main 3D Render -->
+    <div class="main-render-section">
+      <div class="render-area">
+        <canvas #renderCanvas id="renderCanvas"></canvas>
+      </div>
+    </div>
+
+    <!-- Right side - Controls and Drawing -->
+    <div class="right-panel">
+      <!-- Player Info -->
+      <div class="current-player">
+        <span>Current Player: {{ currentPlayerName || 'Unnamed' }}</span>
+      </div>
+
+      <!-- 3D Preview -->
+      <div class="preview-box">
+        <h3>3D Preview</h3>
+        <canvas #previewCanvas id="previewCanvas"></canvas>
+      </div>
+
+      <!-- 2D Drawing Area -->
+      <div class="drawing-section">
+        <div class="drawing-area">
+          <h3>2D Drawing</h3>
+          <div class="canvas-container">
+            <canvas #drawingCanvas width="300" height="300"></canvas>
+          </div>
+          <div class="shape-buttons">
+            <button (click)="onSelectShape('square')" [class.selected]="selectedShape === 'square'">Square</button>
+            <button (click)="onSelectShape('triangle')" [class.selected]="selectedShape === 'triangle'">Triangle</button>
+            <button (click)="onSelectShape('circle')" [class.selected]="selectedShape === 'circle'">Circle</button>
+            <button (click)="onSelectShape('star')" [class.selected]="selectedShape === 'star'">Star</button>
+            <button (click)="onSelectShape('rectangle')" [class.selected]="selectedShape === 'rectangle'">Rectangle</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Fixed Controls -->
+  <div class="bottom-controls-section">
+    <div class="controls-container">
+      <div class="controls-row">
+        <!-- Extrusion -->
+        <div class="control-group">
+          <label for="extrusion">Height:</label>
+          <input type="number" 
+                 id="extrusion"
+                 [(ngModel)]="extrusionHeight" 
+                 min="1" 
+                 step="0.1">
+          <button (click)="onExtrude()">Extrude</button>
+        </div>
+
+        <!-- Movement -->
+        <div class="control-group">
+          <label>Move:</label>
+          <div class="movement-controls">
+            <button (click)="onMove('left')" class="move-btn">←</button>
+            <button (click)="onMove('right')" class="move-btn">→</button>
+            <button (click)="onMove('forward')" class="move-btn">↑</button>
+            <button (click)="onMove('backward')" class="move-btn">↓</button>
+          </div>
+        </div>
+
+        <!-- Player Name -->
+        <!-- <div class="control-group">
+          <label for="playerName">Name:</label>
+          <input type="text" 
+                 id="playerName"
+                 [(ngModel)]="playerName" 
+                 placeholder="Name">
+          <button (click)="onSetName()">Set</button>
+        </div> -->
+
+        <!-- Player Color -->
+        <!-- <div class="control-group">
+          <label for="playerColor">Color:</label>
+          <input type="color" 
+                 id="playerColor"
+                 [(ngModel)]="playerColor">
+          <button (click)="onSetColor()">Set</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>

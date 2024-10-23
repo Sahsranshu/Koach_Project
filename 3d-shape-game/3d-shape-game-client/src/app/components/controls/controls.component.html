@@ -1,0 +1,33 @@
+<div class="controls-container">
+  <h3>Shape Controls</h3>
+  
+  <div class="control-group">
+    <label for="extrusionHeight">Extrusion Height:</label>
+    <input type="number" id="extrusionHeight" [(ngModel)]="extrusionHeight" step="0.1">
+    <button (click)="extrude()">Extrude</button>
+  </div>
+
+  <div class="control-group">
+    <label>Move Shape:</label>
+    <input type="number" [(ngModel)]="moveX" placeholder="X" step="0.1">
+    <input type="number" [(ngModel)]="moveY" placeholder="Y" step="0.1">
+    <input type="number" [(ngModel)]="moveZ" placeholder="Z" step="0.1">
+    <button (click)="move()">Move</button>
+  </div>
+
+  <div class="control-group">
+    <label for="playerName">Player Name:</label>
+    <input type="text" id="playerName" [(ngModel)]="playerName">
+    <button (click)="setName()">Set Name</button>
+  </div>
+
+  <div class="control-group">
+    <label for="playerColor">Player Color:</label>
+    <input type="color" id="playerColor" [(ngModel)]="playerColor">
+    <button (click)="setColor()">Set Color</button>
+  </div>
+
+  <div class="feedback">
+    <p>{{ feedback }}</p>
+  </div>
+</div>

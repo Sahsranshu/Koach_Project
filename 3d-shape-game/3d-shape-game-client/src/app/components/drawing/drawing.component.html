@@ -1,0 +1,15 @@
+<div class="drawing-container">
+  <canvas #drawingCanvas width="400" height="400"></canvas>
+  <canvas #renderCanvas width="400" height="400"></canvas>
+  <div class="controls">
+    <button (click)="selectShape('square')">Square</button>
+    <button (click)="selectShape('triangle')">Triangle</button>
+    <button (click)="selectShape('circle')">Circle</button>
+    <button (click)="selectShape('star')">Star</button>
+    <button (click)="selectShape('rectangle')">Rectangle</button>
+    <input type="number" [(ngModel)]="extrusionHeight" placeholder="Extrusion Height">
+    <button (click)="extrude()">Extrude</button>
+    <button (click)="renderFinal()">Done</button>
+    <button (click)="clearCanvas()">Clear</button>
+  </div>
+</div>

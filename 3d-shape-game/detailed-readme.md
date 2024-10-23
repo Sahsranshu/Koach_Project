@@ -148,9 +148,9 @@ This service manages the connection to the Colyseus server and handles sending/r
 As of now, the following features are implemented:
 - Drawing 2D shapes
 - Turning 2D shapes into 3D objects
+- Moving 3D objects around the shared space
 
 The following features are not yet fully implemented:
-- Moving 3D objects around the shared space
 - Seeing other players' shapes and movements in real-time
 
 ## Future Improvements

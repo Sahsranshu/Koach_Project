@@ -1,0 +1,7 @@
+<h2>Stored Data</h2>
+<button (click)="loadData()">Refresh Data</button>
+<ul>
+  <li *ngFor="let item of dataList">
+    {{ item.name }} ({{ item.age }} years old)
+  </li>
+</ul>

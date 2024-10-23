@@ -1,0 +1,31 @@
+<h1>{{ title }}</h1>
+
+<form (ngSubmit)="onSubmit()" #eventForm="ngForm">
+  <mat-form-field>
+    <input matInput type="number" placeholder="Start Time" name="start_time" [(ngModel)]="event.start_time" required min="0" max="23">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="number" placeholder="End Time" name="end_time" [(ngModel)]="event.end_time" required min="0" max="23">
+  </mat-form-field>
+  <button mat-raised-button color="primary" type="submit" [disabled]="!eventForm.form.valid">Add Event</button>
+</form>
+<p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+
+<h2>Scheduled Events</h2>
+<mat-list>
+  <mat-list-item *ngFor="let event of events">
+    {{ event.start_time }}:00 - {{ event.end_time }}:00
+  </mat-list-item>
+</mat-list>
+
+<div class="timeline">
+  <div class="hour" *ngFor="let hour of [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]" [style.top.%]="hour * 100 / 24">
+    {{ hour }}:00
+  </div>
+  <div class="event" *ngFor="let event of events; let i = index" 
+       [style.top.%]="event.start_time * 100 / 24" 
+       [style.height.%]="((event.end_time - event.start_time) * 100 / 24) - 0.5"
+       [style.margin-top.%]="0.25">
+    {{ event.start_time }}:00 - {{ event.end_time }}:00
+  </div>
+</div>
